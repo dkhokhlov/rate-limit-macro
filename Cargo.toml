@@ -1,0 +1,14 @@
+[package]
+name = "rate-limit-core"
+description = "This is a companion crate to `rate-limit-macro` with primary purpose to provide tests."
+version = "1.0.2"
+authors = ["Dmitri Khokhlov <dkhokhlov@gmail.com>"]
+edition = "2018"
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/dkhokhlov/rate-limit-macro"
+
+[dependencies]
+rate-limit-macro =  { version = "1" }
+
+[dev-dependencies]
