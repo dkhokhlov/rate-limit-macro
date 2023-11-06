@@ -1,7 +1,7 @@
 [package]
 name = "rate-limit-core"
 description = "This is a companion crate to `rate-limit-macro` with primary purpose to provide tests."
-version = "1.0.2"
+version = "1.0.3"
 authors = ["Dmitri Khokhlov <dkhokhlov@gmail.com>"]
 edition = "2018"
 license = "MIT"

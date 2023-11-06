@@ -2,7 +2,7 @@
 
 ## Description
 
-This is a companion crate to [`rate-limit-macro`](https://github.com/dkhokhlov/rate-limit-macro/macro) crate which provides the actual macro. The primary purpose of `rate-limit-core` crate is to provide tests.
+This is a companion crate to [`rate-limit-macro`](https://crates.io/crates/rate-limit-macro) crate which provides the actual macro. The primary purpose of `rate-limit-core` crate is to provide tests.
 
 ## Features
 
@@ -39,5 +39,5 @@ cargo test
 
 ## See Also
 
-- [`rate-limit-macro`](https://github.com/logdna/logdna-agent-v2/tree/master/common/misc/rate-limit/macro) - The actual `rate-limit-macro` crate.
+- [`rate-limit-macro`](https://github.com/dkhokhlov/rate-limit-macro/tree/main/macro) - The actual `rate-limit-macro` crate.
 
