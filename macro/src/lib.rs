@@ -36,12 +36,18 @@ struct RateLimitInput {
 
 impl Parse for RateLimitInput {
     fn parse(input: ParseStream) -> syn::Result<Self> {
-        let _: syn::Ident = input.parse()?;
+        let rate_ident: syn::Ident = input.parse()?;
+        if rate_ident != "rate" {
+            return Err(syn::Error::new_spanned(rate_ident, "expected `rate`"));
+        }
         let _: Token![=] = input.parse()?;
         let rate: Expr = input.parse()?;
         let _: Token![,] = input.parse()?;
 
-        let _: syn::Ident = input.parse()?;
+        let interval_ident: syn::Ident = input.parse()?;
+        if interval_ident != "interval" {
+            return Err(syn::Error::new_spanned(interval_ident, "expected `interval`"));
+        }
         let _: Token![=] = input.parse()?;
         let interval: Expr = input.parse()?;
         let _: Token![,] = input.parse()?;
@@ -95,7 +101,7 @@ pub fn rate_limit(item: TokenStream) -> TokenStream {
             let now = SystemTime::now().duration_since(SystemTime::UNIX_EPOCH).unwrap_or_else(|_| Duration::new(0, 0)).as_secs();
             let elapsed = now - LAST_CALLED.load(Ordering::Relaxed);
 
-            if elapsed > #interval as u64 {
+            if elapsed >= #interval as u64 {
                 STATE.store(0, Ordering::Relaxed);
                 LAST_CALLED.store(now, Ordering::Relaxed);
             }
